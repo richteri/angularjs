@@ -1,0 +1,35 @@
+<form name="bugForm">
+	<input id="id" type="hidden" ng-model="currentBug.id"> 
+	ID: {{currentBug.id}}<br> 
+	Create date: {{currentBug.created | date:'yyyy-MM-dd HH:mm:ss'}}<br> 
+	Update date: {{currentBug.updated | date:'yyyy-MM-dd HH:mm:ss'}}<br>
+		
+	<label>Name*: 
+	<input type="text" name="name" ng-model="currentBug.name" required unique-bug-name></label><br> 
+		
+	<label>Summary*:
+	<input type="text" name="summary" ng-model="currentBug.summary" required></label><br> 
+	
+	<label>Description: 
+	<textarea ng-model="currentBug.description" ></textarea></label><br> 
+	
+	<label>Severity: 
+	<select ng-model="currentBug.severity">
+			<option>MINOR</option>
+			<option>MAJOR</option>
+			<option>CRITICAL</option>
+	</select></label><br> 
+	
+	<label>Status: <select ng-model="currentBug.status">
+			<option>OPEN</option>
+			<option>IN_PROGRESS</option>
+			<option>CLOSED</option>
+	</select></label><br> 
+	
+	<label>Affected ver.: <input type="text"
+		ng-model="currentBug.affectedVer"></label><br> <label>Fix
+		ver.: <input type="text" ng-model="currentBug.fixVer">
+	</label><br>
+
+	<input type="submit" value="Save" ng-click="saveBug()" ng-disabled="!bugForm.$valid">
+</form>

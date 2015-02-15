@@ -1,0 +1,5 @@
+<div ng-repeat="bug in bugs | filter:search | orderBy:'name'">
+	<button ng-click="editBug(bug)">Edit</button>
+	<button ng-click="deleteBug(bug)">Delete</button>
+	{{bug.id}} {{bug.name}} {{bug.severity}}
+</div>
